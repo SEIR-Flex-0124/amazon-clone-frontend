@@ -10,7 +10,7 @@ function Home () {
             let mySpecials = await fetch('http://localhost:2000/');
             // I want to parse the string (as again, information tends to be sent as a string) and turn it into json
             mySpecials = await mySpecials.json();
-            console.log(mySpecials);
+            // console.log(mySpecials);
             // Update the value of specials to be mySpecials that is now the API info parsed into JSON.
             setSpecials(mySpecials);
         } catch(err) {
