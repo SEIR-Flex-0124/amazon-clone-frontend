@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
-import { redirect } from "react-router";
+import { useNavigate } from "react-router-dom";
+
 
 function BooksEdit() {
+    // const navigate = useNavigate();
     const { bookId } = useParams();
     const [book, setBook] = useState(null);
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
     async function getBook() {
         try {
             let myBook = await fetch(`http://localhost:2000/books/${bookId}`);
@@ -39,8 +41,8 @@ function BooksEdit() {
                 },
                 body: JSON.stringify(book)
             });
-            // navigate(`/books`);
-            redirect(`/books/${bookId}`)
+            return navigate(`/books/${bookId}`);
+            // return redirect(`/books/${bookId}`)
         } catch(err) {
             console.log(err);
         }
