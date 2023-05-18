@@ -5,6 +5,8 @@ import BooksIndex from './pages/BooksIndex';
 import BooksShow from './pages/BooksShow';
 import Footer from './components/Footer';
 import Header from './components/Header';
+import BooksEdit from './pages/BooksEdit';
+import BooksDelete from './pages/BooksDelete';
 
 function App() {
   return (
@@ -16,7 +18,11 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='/books'>
           <Route path='' element={<BooksIndex />} />
-          <Route path=':bookId' element={<BooksShow />} />
+          <Route path=':bookId'>
+            <Route path='' element={<BooksShow />} />
+            <Route path="edit" element={<BooksEdit />} />
+            <Route path="delete" element={<BooksDelete />} />
+          </Route>
         </Route>
       </Routes>
       <Footer />

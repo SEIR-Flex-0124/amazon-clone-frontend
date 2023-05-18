@@ -40,7 +40,7 @@ function BooksIndex () {
                                 <h2>Title: {book.title}</h2>
                             </Link>
                             <h3>Author: {book.author}</h3>
-                            <h3>Price: ${book.price}</h3>
+                            <h3>Price: ${book.price.toFixed(2)}</h3>
                             <hr />
                         </div>
                     )
