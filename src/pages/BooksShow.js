@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import Comments from "../components/Comments";
 
 function BooksShow () {
-    const [book, setBook] = useState(null);
+    const [book, setBook] = useState({});
     const { bookId } = useParams();
     
     function bookLoaded() {

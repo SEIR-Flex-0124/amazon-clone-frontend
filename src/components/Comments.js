@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 function Comments({bookId}) {
     // console.log(bookId);
-    const [comments, setComments] = useState(null);
+    const [comments, setComments] = useState([]);
     const [newComment, setNewComment] = useState({
         rating: 5,
         text: "",
