@@ -1,24 +1,12 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
+import Comments from "../components/Comments";
 
 function BooksShow () {
     const [book, setBook] = useState(null);
     const { bookId } = useParams();
-    console.log(bookId);
-    async function getBook() {
-        try {
-            let myBook = await fetch(`http://localhost:2000/books/${bookId}`);
-            myBook = await myBook.json();
-            // console.log(myBook);
-            setBook(myBook);
-        } catch(err) {
-            console.log(err);
-        }
-    }
-
-    console.log(book);
-
+    
     function bookLoaded() {
         return(
             <>
@@ -31,11 +19,20 @@ function BooksShow () {
                 <Link to={`/books/${bookId}/delete`}>
                     <button>Delete</button>
                 </Link>
+                <hr />
+                <h3>Comments:</h3>
+                <Comments bookId={bookId}/>
             </>
         )
     }
 
     useEffect(() => {
+        const getBook = async () => {
+            let myBook = await fetch(`https://amazon-clone-api-bblr.onrender.com/books/${bookId}`);
+            myBook = await myBook.json();
+            // console.log(myBook);
+            setBook(myBook);
+        }
         getBook();
     }, []);
 

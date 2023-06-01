@@ -7,7 +7,7 @@ function Home () {
     async function fetchSpecials() {
         try {
             // I want to go and grab all my specials from the URL I have that is my backend API
-            let mySpecials = await fetch('http://localhost:2000/');
+            let mySpecials = await fetch('https://amazon-clone-api-bblr.onrender.com/');
             // I want to parse the string (as again, information tends to be sent as a string) and turn it into json
             mySpecials = await mySpecials.json();
             // console.log(mySpecials);

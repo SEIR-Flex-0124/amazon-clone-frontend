@@ -14,7 +14,7 @@ function BooksIndex () {
     async function getBooks() {
         try {
             // I want to fetch information from API. I'm going to be using localhost because render is insanely slow.
-            let myBooks = await fetch('http://localhost:2000/books')
+            let myBooks = await fetch('https://amazon-clone-api-bblr.onrender.com/books')
             // The next thing I need to do is, because information we send is sent as a string, I need to parse it.
             myBooks = await myBooks.json();
             // Updating the value of my hook, which I'm calling books.
@@ -65,7 +65,7 @@ function BooksIndex () {
             // I don't want to reload this page because that defeats the purpose of React
             e.preventDefault();
             // I want to fetch but with a post request so I need to add in some options
-            await fetch('http://localhost:2000/books', {
+            await fetch('https://amazon-clone-api-bblr.onrender.com/books', {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"

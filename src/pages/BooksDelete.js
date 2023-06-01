@@ -7,7 +7,7 @@ function BooksDelete() {
     async function deleteMyBook() {
         try {
             // Make an API call to the DELETE route!
-            await fetch(`http://localhost:2000/books/${bookId}`, {
+            await fetch(`https://amazon-clone-api-bblr.onrender.com/books/${bookId}`, {
                 method: "DELETE",
                 headers: {
                     "Content-Type": "application/json"

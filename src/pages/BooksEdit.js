@@ -10,7 +10,7 @@ function BooksEdit() {
     const navigate = useNavigate();
     async function getBook() {
         try {
-            let myBook = await fetch(`http://localhost:2000/books/${bookId}`);
+            let myBook = await fetch(`https://amazon-clone-api-bblr.onrender.com/books/${bookId}`);
             myBook = await myBook.json();
             setBook(myBook);
         } catch(err) {
@@ -34,7 +34,7 @@ function BooksEdit() {
         try{
             e.preventDefault();
             // console.log("I'm submitting my put request")
-            await fetch(`http://localhost:2000/books/${bookId}`, {
+            await fetch(`https://amazon-clone-api-bblr.onrender.com/books/${bookId}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json"
