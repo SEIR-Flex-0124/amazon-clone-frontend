@@ -31,7 +31,7 @@ function Comments({bookId}) {
             [e.target.name]: e.target.value
         }))
     }
-    console.log(newComment);
+    // console.log(newComment);
 
     async function handleSubmit(e) {
         e.preventDefault();
