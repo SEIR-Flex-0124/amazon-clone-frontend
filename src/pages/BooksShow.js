@@ -34,7 +34,7 @@ function BooksShow () {
             setBook(myBook);
         }
         getBook();
-    }, []);
+    }, [bookId]);
 
     return(
         <>
