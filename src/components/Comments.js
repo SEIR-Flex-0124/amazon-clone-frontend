@@ -8,22 +8,22 @@ function Comments({bookId}) {
         text: "",
         user: "",
     });
-
-    async function getComments() {
-        try {
-            const myBooksComments = await fetch(`https://amazon-clone-api-bblr.onrender.com/books/${bookId}/comments`);
-            const parsedBooksComments = await myBooksComments.json();
-            // console.log(parsedBooksComments);
-            setComments(parsedBooksComments);
-        } catch(err) {
-            console.log(err);
-        }
-    }
-    console.log(comments);
+    const [render, setRender] = useState(0)
+    // console.log(comments);
 
     useEffect(() => {
+        async function getComments() {
+            try {
+                const myBooksComments = await fetch(`https://amazon-clone-api-bblr.onrender.com/books/${bookId}/comments`);
+                const parsedBooksComments = await myBooksComments.json();
+                // console.log(parsedBooksComments);
+                setComments(parsedBooksComments);
+            } catch(err) {
+                console.log(err);
+            }
+        }
         getComments();
-    }, []);
+    }, [bookId]);
 
     function handleChange(e) {
         setNewComment((currentComment) => ({
@@ -44,7 +44,8 @@ function Comments({bookId}) {
             // I have to specify that what I'm sending, as with most things that are sent, is going to be a string.
             body: JSON.stringify(newComment)
         })
-        getComments();
+        console.log(render);
+        setRender((currentRender) => currentRender++)
         e.target.reset();
     }
 

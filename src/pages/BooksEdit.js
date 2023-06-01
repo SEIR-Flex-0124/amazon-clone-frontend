@@ -8,20 +8,20 @@ function BooksEdit() {
     const { bookId } = useParams();
     const [book, setBook] = useState(null);
     const navigate = useNavigate();
-    async function getBook() {
-        try {
-            let myBook = await fetch(`https://amazon-clone-api-bblr.onrender.com/books/${bookId}`);
-            myBook = await myBook.json();
-            setBook(myBook);
-        } catch(err) {
-            console.log(err);
-        }
-    }
     // console.log(book);
 
     useEffect(() => {
+        async function getBook() {
+            try {
+                let myBook = await fetch(`https://amazon-clone-api-bblr.onrender.com/books/${bookId}`);
+                myBook = await myBook.json();
+                setBook(myBook);
+            } catch(err) {
+                console.log(err);
+            }
+        }
         getBook();
-    }, []);
+    }, [bookId]);
 
     function handleChange(e) {
         setBook((currentState) => ({
